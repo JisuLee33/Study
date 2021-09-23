@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date</title>
+</head>
+<body>
+  <script>
+    let now = new Date();
+    console.log(now);
+
+    let year = now.getFullYear();
+    console.log(year);
+
+
+    let month = now.getMonth();
+    console.log(month+1); //달이 0~11로 나온다. 9월이 8로
+
+    let date = now.getDate();
+    console.log(date);
+
+    let day = now.getDay();
+    console.log(day); // 요일 일-0,월-1,화-2,수-3,목-4,금-5,토-6
+
+    let hours = now.getHours();
+    console.log(hours); // 시간은 24시를 기준으로 나온다. 오후3시 => 15시
+
+    let minutes = now.getMinutes();
+    console.log(minutes);
+
+    let seconds = now.getSeconds();
+    console.log(seconds);
+  </script>
+</body>
+</html>
