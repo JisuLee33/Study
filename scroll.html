@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //============1=======================
+        //휴대폰 이미지 안에서 반응형을 보여줄 수 있는 페이지가 위 아래로 반복해서 움직임. - 이대규
+        $(function () {
+    $(".section_main").mouseover(function () {
+        var img_height = $(this).children("img").height();
+        var section_main_height = $(this).height();
+
+        $(this).children("img").stop().animate({
+            marginTop: -img_height + section_main_height
+        }, 8000);
+    }).mouseout(function () {
+        $(this).children("img").stop().animate({
+            marginTop: 0
+        }, 1000);
+    });
+
+    // 핸드폰 이미지 슬라이드
+    var section_phone_height = $(".section_phone").height();
+    var section_phone_height_plus1 = 0;
+    var section_phone_height_plus2 = 0;
+
+    function phone_slide() {
+
+        if ($(".section_mini:first").children("img").height() % section_phone_height < section_phone_height) {
+            section_phone_height_plus1 += $(".section_mini:first").children("img").height() % section_phone_height
+        } else {
+            section_phone_height_plus1 += $(".section_mini").height();
+        };
+
+        if ($(".section_mini:last").children("img").height() % section_phone_height < section_phone_height) {
+            section_phone_height_plus2 += $(".section_mini:first").children("img").height() % section_phone_height
+        } else {
+            section_phone_height_plus2 += $(".section_mini").height();
+        };
+
+
+        if (section_phone_height_plus1 >= $(".section_mini:first").children("img").height() - section_phone_height) {
+            section_phone_height_plus1 = 0;
+        }
+        if (section_phone_height_plus2 >= $(".section_mini:last").children("img").height() - section_phone_height) {
+            section_phone_height_plus2 = 0;
+        }
+
+        $(".section_mini:first").children("img").animate({
+            marginTop: -section_phone_height_plus1
+        }, 700);
+        $(".section_mini:last").children("img").animate({
+            marginTop: -section_phone_height_plus2
+        }, 700);
+    }
+
+
+    setInterval(phone_slide, 3000);
+});
+
+        //============1=======================
+
+        //==================2==========================
+
+        //반응형 슬라이드
+        // 휴대폰 이미지 안에 마우스를 올리면 반응형을 보여줄 수있는 이미지가 스크롤됨 - 이연희
+		$(function() {
+			$('.mobile2').mouseover(function() {
+				$(this).find('.phone_2').stop().animate({scrollTop: ($(document).height())}, 10000);
+			}).mouseout(function() {
+				$(this).find('.phone_2').stop().animate({scrollTop: 0}, 3000);
+			});
+		});
+
+		$(function() {
+			$('.mobile3').mouseover(function() {
+				$(this).find('.phone_3').stop().animate({scrollTop: ($(document).height())}, 10000);
+			}).mouseout(function() {
+				$(this).find('.phone_3').stop().animate({scrollTop: 0}, 3000);
+			});
+		});
+
+        //==================2==========================
+
+        //====================3========================
+
+            
+
+        //====================3========================
+
+
+
+    </script>
+</body>
+</html>
